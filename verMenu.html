@@ -14,14 +14,36 @@
 
 	    <input type="text" id="idMenu">
 
-	    <button onclick="verMenu()">Ver menú</button>
+        <!-- <button onclick="verMenu()">Ver menú</button> -->
+        
+        <button onclick="verRestaurante()">Ver restaurante</button>
     </section>	
     
     <section id="salida">
-
     </section>
 
     <script>
+
+        function verRestaurante(){
+            var nombre;
+            var platos = [];
+            var cadenaSalida;
+
+            // Cosultar base de datos
+
+            cadenaSalida = "<h4>Restaurante " + nombre + "</h4><br><h5>Platos:</h5><br>";
+
+            // Imprimir platos
+            for (var i=0; i<platos.length; i++){
+                var platoConsultado = platos[i];
+                cadenaSalida = cadenaSalida + platoConsultado + "<br>";
+            }
+            
+            document.getElementById("salida").innerHTML = cadenaSalida;
+
+        }
+
+        /*
         function verMenu(){
             var alergenos = [];
             var ingredientes = [];
@@ -36,7 +58,7 @@
 
             cadenaSalida = "<h4>Nombre:</h4><p>" + nombre + "</p><br><h4>Tipo:</h4><p>" + tipo + "</p><br><h4>Calorías</h4><p>" + calorias + "</p><br><h4>Alérgenos</h4>";
             // Sacar alérgenos
-            for (i=0;x<alergenos.length;i++){
+            for (i=0;i<alergenos.length;i++){
                 var nuevaCadena = "<p>" + alergenos[i] + "</p><br>";
                 cadenaSalida = cadenaSalida += nuevaCadena;
             }
@@ -48,7 +70,7 @@
             
             document.getElementById("salida").innerHTML = cadenaSalida;
 
-        }
+        }*/
     </script>
     
 </body>
