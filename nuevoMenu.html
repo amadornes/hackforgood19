@@ -21,10 +21,10 @@
         firebase.initializeApp(config);
     </script>
 </head>
-<header>
-    <a href="index.html" id="header"><h1>FoodForGood</h1></a>
-</header>
 <body>
+<header>
+    <a href="index.html" id="header"><h1>Food For Good</h1></a>
+</header>
 
     <section class="seccion">
         <p>Introduce nombre del plato:</p>
@@ -35,8 +35,10 @@
         <input type="number" id="caloriasPlato">
         <p>Introduce alérgenos:</p>
         <input type="text" id="nuevoAlergeno"> <button onclick="nuevoAlergeno()">Añadir</button>
-        <p>Introduce ingredientes</p>
-        <input type="text" id="nuevoIngrediente"> <button onclick="nuevoIngrediente()">Añadir</button>
+        <p>Introduce el tiempo de elaboración</p>
+        <input type="number" id="telab">
+        <p>Introduce descripcion</p>
+        <textarea id="desc" cols="40" rows="5"></textarea>
         <p>Introduce precio</p>
         <input type="number" id="precio">
         <br>
@@ -46,11 +48,12 @@
     <script>
         var idRest = localStorage.getItem("idRest");
         var alergenosAdd = [];
-        var ingredientesAdd = [];
+        var telaboracion;
         var nombreAdd;
         var tipoAdd;
         var caloriasAdd;
         var precioAdd;
+        var descripcion;
 
         function nuevoMenu(){
 
@@ -58,27 +61,28 @@
             tipoAdd = document.getElementById('tipoPlato').value;
             nombreAdd = document.getElementById('nombreMenu').value;
             precioAdd = document.getElementById('precio').value;
+            telaboracion = document.getElementById('telab').value;
+            descripcion = document.getElementById('desc').value;
 
             firebase.firestore().collection('restaurante').doc(idRest).collection('menu').add({
                 calorias: caloriasAdd,
                 nombre: nombreAdd,
                 tipo: tipoAdd,
                 alergenos: alergenosAdd,
-                ingredientes: ingredientesAdd,
-                precio: precioAdd
+                tiempoelaboracion: telaboracion,
+                precio: precioAdd, 
+                descripcion: descripcion
             }).then((entry) => {
                 console.log(entry);
             });
-
-            document.location.reload(true)
-        }
-
-        function nuevoIngrediente(){
-            var ingredienteAnnadir = document.getElementById('nuevoIngrediente').value;
-            console.log(ingredienteAnnadir);
-            ingredientesAdd.push(ingredienteAnnadir);
-            document.getElementById('nuevoIngrediente').value = '';
-            console.log(ingredientesAdd);
+            document.getElementById('caloriasPlato').value = "";
+            document.getElementById('tipoPlato').value ="";
+            document.getElementById('nombreMenu').value ="";
+            document.getElementById('precio').value="";
+            document.getElementById('desc').value = "";
+            document.getElementById('telab').value ="";
+            alergenosAdd = [];
+            //document.location.reload(true)
         }
 
         function nuevoAlergeno(){
