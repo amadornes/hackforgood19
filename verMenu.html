@@ -45,6 +45,7 @@
             var nombre;
             var platos = [];
             var cadenaSalida = "";
+            var obj;
 
             if(idRest != "" && idRest != " "){
                 // Cosultar base de datos
@@ -54,8 +55,44 @@
                     querySnapshot.forEach(function(doc) {
                         // doc.data() is never undefined for query doc snapshots
                         console.log(doc.id, " => ", doc.data());
-                        var cadenaSalidaDos = "<p>" + doc.data().toString + "</p>";
-                        cadenaSalida = cadenaSalida += cadenaSalidaDos;
+
+                        obj = JSON.parse(JSON.stringify( doc.data()));
+
+                        cadenaSalida = "<br><h4> Nombre: </h4> <p>" + obj.nombre + "</p>";
+
+                        cadenaSalida += "<h4> Tipo: </h4> <p>" + obj.tipo + "</p>";
+
+                        cadenaSalida += "<h4> Calorias: </h4> <p>" + obj.calorias + "</p>";
+
+                        cadenaSalida += "<h4>Ingredientes:</h4>"
+
+
+                        for(var i = 0; i<obj.ingredientes.length;i++){
+
+                        	cadenaSalida += "<p>&nbsp&nbsp&nbsp&nbsp&nbsp" + obj.ingredientes[i] + "</p>";
+
+
+                        }
+
+                        cadenaSalida += "<h4>Alergenos:</h4>"
+                        for(var i = 0; i<obj.alergenos.length;i++){
+
+                        	cadenaSalida += "<p>&nbsp&nbsp&nbsp&nbsp&nbsp" + obj.alergenos[i] + "</p>";
+
+
+                        }
+
+                        cadenaSalida += "<h4> descripcion: </h4> <p>" + obj.descripcion + "</p>";
+
+
+                        cadenaSalida += "<h4> Precio: </h4> <p>" + obj.precio + "</p>";
+
+                        /*cadenaSalida = "<p>";
+                        cadenaSalida += JSON.stringify(doc.data());
+                        cadenaSalida += "</p>";
+                        console.log(" :::::::::::::::::::::::::::::::::::::. ");
+		                console.log("LOG: " + cadenaSalida);*/
+			            document.getElementById("salida").innerHTML += cadenaSalida;
                     });
                 })
                 .catch(function(error) {
@@ -71,8 +108,6 @@
 	            }
                 */
 
-                console.log("Error getting documents: " + cadenaSalida);
-	            document.getElementById("salida").innerHTML = cadenaSalida;
 
              }
             else
