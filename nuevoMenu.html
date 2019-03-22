@@ -7,11 +7,10 @@
 <body>
 
     <section>
-        <p>Introduce ID de restaurante:</p>
-        <input type="text" id="idRest">
         <p>Introduce nombre del plato:</p>
         <input type="text" id="nombreMenu">
-        <p>Introduce ingredientes, separados por comas</p>
+        <p>Introduce ingredientes</p>
+        <input type="text" id="nuevoIngrediente"> <button onclick="nuevoIngrediente()">Añadir</button>
         <button onclick="nuevoMenu()">Añadir menú</button>
     </section>
 
@@ -26,7 +25,13 @@
 
         var database = firebase.database();
 
+        var idRest = localStorage.getItem("idRest");
+
         function nuevoMenu(){
+            
+        }
+
+        function nuevoIngrediente(){
             
         }
     </script>
