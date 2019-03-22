@@ -10,9 +10,9 @@
 </header>
 <body>
 	<section class="seccion">
-	    <h3>Ver menú</h3>
+	    <h3>Ver restaurante</h3>
 
-	    <input type="text" id="idMenu">
+	    <input type="text" id="idR">
 
         <!-- <button onclick="verMenu()">Ver menú</button> -->
         
@@ -25,11 +25,13 @@
     <script>
 
         function verRestaurante(){
+            var idRest = document.getElementById('idR').value;
             var nombre;
             var platos = [];
             var cadenaSalida;
 
             // Cosultar base de datos
+            var docRef = firebase.firestore().collection("restaurante").doc(idRest).collection("menu");
 
             cadenaSalida = "<h4>Restaurante " + nombre + "</h4><br><h5>Platos:</h5><br>";
 
@@ -38,7 +40,7 @@
                 var platoConsultado = platos[i];
                 cadenaSalida = cadenaSalida + platoConsultado + "<br>";
             }
-            
+
             document.getElementById("salida").innerHTML = cadenaSalida;
 
         }
