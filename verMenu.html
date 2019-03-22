@@ -36,7 +36,7 @@
 		<p id="error">No puede estar vacio</p>
     </section>	
     
-    <section id="salida" class="seccion">
+    <section id="salida">
     </section>
 
     <script>
@@ -47,6 +47,7 @@
             var platos = [];
             var cadenaSalida = "";
             var obj;
+            document.getElementById('foot').style.position = "relative";
 
             if(idRest != "" && idRest != " "){
             	document.getElementById("salida").innerHTML = "";
@@ -60,7 +61,7 @@
 
                         obj = JSON.parse(JSON.stringify( doc.data()));
 
-                        cadenaSalida = "<br><p> <span style=\"font-weight: bold\">Nombre: </span> " + obj.nombre + "</p>";
+                        cadenaSalida = "<p> <span style=\"font-weight: bold\">Nombre: </span> " + obj.nombre + "</p>";
 
                         cadenaSalida += "<p> <span style=\"font-weight: bold\">Tipo: </span>" + obj.tipo + "</p>";
 
@@ -113,36 +114,9 @@
             }
 
         }
-
-        /*
-        function verMenu(){
-            var alergenos = [];
-            var ingredientes = [];
-            var nombre;
-            var tipo;
-            var calorias;
-            
-            // Consultar base de datos
-
-            // Escribir
-            var cadenaSalida;
-
-            cadenaSalida = "<h4>Nombre:</h4><p>" + nombre + "</p><br><h4>Tipo:</h4><p>" + tipo + "</p><br><h4>Calorías</h4><p>" + calorias + "</p><br><h4>Alérgenos</h4>";
-            // Sacar alérgenos
-            for (i=0;i<alergenos.length;i++){
-                var nuevaCadena = "<p>" + alergenos[i] + "</p><br>";
-                cadenaSalida = cadenaSalida += nuevaCadena;
-            }
-            // Sacar ingredientes
-            for (j=0; j<ingredientes; j++){
-                var nuevaCadena = "<p>" + ingredientes[j] + "</p><br>";
-                cadenaSalida = cadenaSalida += nuevaCadena;
-            }
-            
-            document.getElementById("salida").innerHTML = cadenaSalida;
-
-        }*/
     </script>
-    
+<footer class="pagPeque" id="foot">
+	<img src="img/BlancoPNG.png" id="imagen">
+</footer>
 </body>
 </html>

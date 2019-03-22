@@ -4,14 +4,19 @@
 	color: black;
 }
 
+h1{
+
+	vertical-align: middle;
+}
+
 header{
 	text-align: center;
     background-color: #212121;
-    position: relative;
+    position: absolute;
     color: #FFFFFF;
     font-family: Times New Roman;
-    top: -22px;
-    height: 5%;
+    top: 0;
+    width: 100%;
     padding-top: 0.05%;
     padding-bottom: 0.05%;
     margin-left: -0.6%;
@@ -36,10 +41,16 @@ body{
 	font-size: 15;
 }
 
+button{
+
+	border: 2px solid black;
+	border-radius: 5%;
+	background-color: #E0E0E0;
+}
 
 .textop{
 
-	
+	margin-top: 2%;
 	text-align: center;
 	font-size: 25px;
 	padding: 10px;
@@ -52,7 +63,7 @@ body{
 
 
 .textop:hover{
-	color: #BDBDBD;
+	background-color: #BDBDBD;
 
 
 }
@@ -64,12 +75,22 @@ body{
 footer{
 	background-color: #212121;
     font-style: italic;
+    align-items: center;
+    margin-left: -0.6%;
+    margin-right: -0.6%;
+    margin-top: 1%;
+    margin-bottom: -1%;
+    width: 100%;
+    position: relative;
+  	
 }
 
 .seccion{
 	/*margin-top: 5%;*/
 	margin-right: 35%;
-	margin-left: 35%
+	margin-left: 35%;
+
+	margin-top: 10%;
 
 }
 
@@ -79,6 +100,24 @@ footer{
 }
 
 #imagen{
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 75px;
+    padding: 5px;
+    margin-right: 45%;
+	margin-left: 46%;
+}
+
+.pagPeque{
+
+
+	position: absolute;
+	bottom: 0;
+}
+
+#salida{
+
+
+	margin-right: 35%;
+	margin-left: 35%;
+
 }
