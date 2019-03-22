@@ -11,14 +11,17 @@ header{
     color: #FFFFFF;
     font-family: Times New Roman;
     top: -22px;
-    height: 50px;
+    height: 5%;
+    padding-top: 0.05%;
+    padding-bottom: 0.05%;
+    margin-left: -5%;
+    margin-right: -5%;
 }
 
 #header {
 	
 	text-decoration: none;
 	color: #EEEEEE;
-	padding-top: 100px;
 }
 
 body{
