@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>FoodForGood</title>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-database.js"></script> -->
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDv2KMF781Ks85L4YAKKaV6319XcsDwze4",
+        authDomain: "hackforgood19.firebaseapp.com",
+        databaseURL: "https://hackforgood19.firebaseio.com",
+        projectId: "hackforgood19",
+        storageBucket: "hackforgood19.appspot.com",
+        messagingSenderId: "830068370062"
+    };
+    firebase.initializeApp(config);
+    </script>
 </head>
 <body>
 
@@ -22,16 +36,6 @@
     </section>
 
     <script>
-        var config = {
-            apiKey: "apiKey",
-            authDomain: "projectId.firebaseapp.com",
-            databaseURL: "https://databaseName.firebaseio.com",
-            storageBucket: "bucket.appspot.com"
-        };
-        firebase.initializeApp(config);
-
-        var database = firebase.database();
-
         var idRest = localStorage.getItem("idRest");
         var alergenos = [];
         var ingredientes = [];
@@ -41,12 +45,19 @@
         }
 
         function nuevoIngrediente(){
-            ingredientes.push(document.getElementById("nuevoIngrediente").value);
+            var ingredienteAnnadir = document.getElementById('nuevoIngrediente').value;
+            console.log(ingredienteAnnadir);
+            ingredientes.push(ingredienteAnnadir);
             document.getElementById('nuevoIngrediente').value = '';
+            console.log(ingredientes);
         }
 
         function nuevoAlergeno(){
-            alergenos.push(document.getElementById("nuevoAlergeno").value);
+            var alergenoAnnadir = document.getElementById('nuevoAlergeno').value;
+            console.log(alergenoAnnadir);
+            alergenos.push(alergenoAnnadir);
+            document.getElementById('nuevoAlergeno').value = '';
+            console.log(alergenos);
         }
     </script>
     
