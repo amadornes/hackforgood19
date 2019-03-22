@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>FoodForGood</title>
+<<<<<<< Updated upstream
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+=======
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-database.js"></script> -->
+>>>>>>> Stashed changes
     <script>
         // Initialize Firebase
         var config = {
@@ -18,9 +24,12 @@
         firebase.initializeApp(config);
     </script>
 </head>
+<header>
+    <h1>FoodForGood</h1>
+</header>
 <body>
 
-    <section>
+    <section class="seccion">
         <p>Introduce nombre del plato:</p>
         <input type="text" id="nombreMenu">
         <p>Introduce tipo de plato (entrante, postre...)</p>

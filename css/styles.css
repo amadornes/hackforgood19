@@ -28,7 +28,23 @@ body{
   	background-color: #E0E0E0;
 }
 
+a{
+
+	text-decoration: none;
+	color: black;
+}
+.textop:hover{
+	color: #BDBDBD;
+
+
+}
 footer{
 	background-color: #212121;
     font-style: italic;
+}
+
+.seccion{
+	margin-right: 35%;
+	margin-left: 35%
+
 }
