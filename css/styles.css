@@ -1,0 +1,15 @@
+body{
+    background-color: #EEEEEE;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+}
+
+header{
+    background-color: #212121;
+    position: relative;
+    top: -22px;
+}
+
+footer{
+	background-color: #212121;
+    font-style: italic;
+}
