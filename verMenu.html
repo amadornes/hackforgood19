@@ -47,9 +47,10 @@
             var platos = [];
             var cadenaSalida = "";
             var obj;
-            document.getElementById('foot').style.position = "relative";
+            
 
             if(idRest != "" && idRest != " "){
+            	document.getElementById('foot').style.position = "relative";
             	document.getElementById("salida").innerHTML = "";
                 // Cosultar base de datos  /restaurante/idRest/menu
 	            var docRef = firebase.firestore().collection("restaurante").doc(idRest).collection("menu");
