@@ -51,7 +51,7 @@
 
             if(idRest != "" && idRest != " "){
             	document.getElementById("salida").innerHTML = "";
-                // Cosultar base de datos
+                // Cosultar base de datos  /restaurante/idRest/menu
 	            var docRef = firebase.firestore().collection("restaurante").doc(idRest).collection("menu");
                 docRef.get()
                 .then(function(querySnapshot) {
@@ -88,7 +88,7 @@
                         cadenaSalida += "</ul><p> <span style=\"font-weight: bold\">Descripcion: </span>" + obj.descripcion + "</p>";
 
 
-                        cadenaSalida += "<p> <span style=\"font-weight: bold\">Precio: </span>" + obj.precio + "</p>";
+                        cadenaSalida += "<p> <span style=\"font-weight: bold\">Precio: </span>" + obj.precio + "</p><br>";
 
 			            document.getElementById("salida").innerHTML += cadenaSalida;
                     });
