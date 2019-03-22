@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>FoodForGood</title>
+</head>
+<body>
+
+    <section>
+            <p>Introduce nombre del plato:</p>
+            <input type="text" id="nombreMenu">
+            <p>Introduce ingredientes, separados por comas</p>
+    </section>
+
+    <script>
+        var config = {
+            apiKey: "apiKey",
+            authDomain: "projectId.firebaseapp.com",
+            databaseURL: "https://databaseName.firebaseio.com",
+            storageBucket: "bucket.appspot.com"
+        };
+        firebase.initializeApp(config);
+
+        var database = firebase.database();
+
+        function cargaTri(){
+            
+        }
+    </script>
+    
+</body>
+</html>
