@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <title>FoodForGood</title>
+</head>
+<header>
+    <a href="index.html" id="header"><h1>FoodForGood</h1></a>
+</header>
+<body>
+    <section class="seccion">
+        <p>Introduce ID del restaurante:</p>
+        <input type="text" id="idRest" required>
+        <button onclick="seguir()">Nuevo menú</button>
+        <p id="error">No puede estar vacio</p>
+    </section>
+    <script>
+        function seguir(){
+            
+            if(document.getElementById("idRest").value != "" && document.getElementById("idRest").value != " "){
+                var idRestaurante = document.getElementById("idRest").value;
+                localStorage.setItem("idRest", idRestaurante);
+                window.location.replace("nuevoMenu.html");
+                
+            }
+            else
+            {
+                document.getElementById("error").style.visibility = "visible";
+            }
+        }
+    </script>
+<footer class="pagPeque">
+    <img src="img/BlancoPNG.png" id="imagen">
+</footer>
+</body>
+</html>
