@@ -13,7 +13,7 @@
 	    <h3>Ver restaurante</h3>
 
 	    <input type="text" id="idR">
-
+		<p id="error">No puede estar vacio</p>
         <!-- <button onclick="verMenu()">Ver menú</button> -->
         
         <button onclick="verRestaurante()">Ver restaurante</button>
@@ -31,17 +31,25 @@
             var cadenaSalida;
 
             // Cosultar base de datos
-            var docRef = firebase.firestore().collection("restaurante").doc(idRest).collection("menu");
 
-            cadenaSalida = "<h4>Restaurante " + nombre + "</h4><br><h5>Platos:</h5><br>";
+            if(idRest != "" && idRest != " "){
+	            var docRef = firebase.firestore().collection("restaurante").doc(idRest).collection("menu");
 
-            // Imprimir platos
-            for (var i=0; i<platos.length; i++){
-                var platoConsultado = platos[i];
-                cadenaSalida = cadenaSalida + platoConsultado + "<br>";
+	            cadenaSalida = "<h4>Restaurante " + nombre + "</h4><br><h5>Platos:</h5><br>";
+
+	            // Imprimir platos
+	            for (var i=0; i<platos.length; i++){
+	                var platoConsultado = platos[i];
+	                cadenaSalida = cadenaSalida + platoConsultado + "<br>";
+	            }
+
+	            document.getElementById("salida").innerHTML = cadenaSalida;
+
+             }
+            else
+            {
+                document.getElementById("error").style.visibility = "visible";
             }
-
-            document.getElementById("salida").innerHTML = cadenaSalida;
 
         }
 
