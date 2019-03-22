@@ -8,11 +8,11 @@
 
     <p>Introduce ID:</p>
     <input type="text" id="idRest">
-    <button onclick="seguir(idRest)">Ver menú</button>
+    <button onclick="seguir()">Ver menú</button>
 
     <script>
-        function seguir(idRest){
-            var idRestaurante = idRest;
+        function seguir(){
+            var idRestaurante = document.getElementById("idRest").value;
             localStorage.setItem("idRest", idRestaurante);
             window.location.replace("nuevoMenu.html");
         }
