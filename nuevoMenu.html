@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>FoodForGood</title>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
     <script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyDv2KMF781Ks85L4YAKKaV6319XcsDwze4",
-        authDomain: "hackforgood19.firebaseapp.com",
-        databaseURL: "https://hackforgood19.firebaseio.com",
-        projectId: "hackforgood19",
-        storageBucket: "hackforgood19.appspot.com",
-        messagingSenderId: "830068370062"
-    };
-    firebase.initializeApp(config);
-    var database = firebase.database();
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDv2KMF781Ks85L4YAKKaV6319XcsDwze4",
+            authDomain: "hackforgood19.firebaseapp.com",
+            databaseURL: "https://hackforgood19.firebaseio.com",
+            projectId: "hackforgood19",
+            storageBucket: "hackforgood19.appspot.com",
+            messagingSenderId: "830068370062"
+        };
+        firebase.initializeApp(config);
     </script>
 </head>
 <body>
@@ -45,8 +44,10 @@
         var calorias = document.getElementById('caloriasPlato').value;
 
         function nuevoMenu(){
-            let nuevoMenu = database.ref('restaurante/' + idRest + '/menu').add({
+            firebase.firestore().collection('restaurante').doc(idRest).collection('menu').add({
                 test: "algo"
+            }).then((entry) => {
+                console.log(entry);
             });
         }
 
