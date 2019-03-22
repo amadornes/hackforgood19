@@ -17,7 +17,6 @@ Realizada por:
 
 	Victor Garcia
 
-
 	Nestor Amador
 
 	Jorge de Huerta Merino
