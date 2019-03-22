@@ -37,6 +37,8 @@
         <input type="text" id="nuevoAlergeno"> <button onclick="nuevoAlergeno()">Añadir</button>
         <p>Introduce ingredientes</p>
         <input type="text" id="nuevoIngrediente"> <button onclick="nuevoIngrediente()">Añadir</button>
+        <p>Introduce precio</p>
+        <input type="number" id="precio">
         <br>
         <button onclick="nuevoMenu()" id="addMenu">Añadir menú</button>
     </section>
@@ -48,22 +50,27 @@
         var nombreAdd;
         var tipoAdd;
         var caloriasAdd;
+        var precioAdd;
 
         function nuevoMenu(){
 
             caloriasAdd = document.getElementById('caloriasPlato').value;
             tipoAdd = document.getElementById('tipoPlato').value;
             nombreAdd = document.getElementById('nombreMenu').value;
+            precioAdd = document.getElementById('precio').value;
 
             firebase.firestore().collection('restaurante').doc(idRest).collection('menu').add({
                 calorias: caloriasAdd,
                 nombre: nombreAdd,
                 tipo: tipoAdd,
                 alergenos: alergenosAdd,
-                ingredientes: ingredientesAdd
+                ingredientes: ingredientesAdd,
+                precio: precioAdd
             }).then((entry) => {
                 console.log(entry);
             });
+
+            document.location.reload(true)
         }
 
         function nuevoIngrediente(){
