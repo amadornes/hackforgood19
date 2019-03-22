@@ -18,6 +18,7 @@ header{
 	
 	text-decoration: none;
 	color: #EEEEEE;
+	padding-top: 100px;
 }
 
 body{
@@ -31,8 +32,11 @@ body{
 	color: red;
 	font-size: 15;
 }
+
+
 .textop{
 
+	
 	text-align: center;
 	font-size: 25px;
 	padding: 10px;
@@ -49,12 +53,18 @@ body{
 
 
 }
+
+#a{
+
+	margin-top: 10%;
+}
 footer{
 	background-color: #212121;
     font-style: italic;
 }
 
 .seccion{
+	margin-top: 5%;
 	margin-right: 35%;
 	margin-left: 35%
 
