@@ -2,16 +2,20 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <title>FoodForGood</title>
 </head>
+<header>
+	<a href="index.html" id="header"><h1>FoodForGood</h1></a>
+</header>
 <body>
+	<section class="seccion">
+	    <h3>Ver menú</h3>
 
-    <h3>Ver menú</h3>
+	    <input type="text" id="idMenu">
 
-    <input type="text" id="idMenu">
-
-    <button onclick="verMenu()">Ver menú</button>
-
+	    <button onclick="verMenu()">Ver menú</button>
+	</section>	
     <script>
         function verMenu(){
             var alergenos = [];

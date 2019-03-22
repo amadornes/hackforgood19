@@ -2,14 +2,18 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <title>FoodForGood</title>
 </head>
+<header>
+    <a href="index.html" id="header"><h1>FoodForGood</h1></a>
+</header>
 <body>
-
-    <p>Introduce ID:</p>
-    <input type="text" id="idRest">
-    <button onclick="seguir()">Nuevo menú</button>
-
+    <section class="seccion">
+        <p>Introduce ID:</p>
+        <input type="text" id="idRest">
+        <button onclick="seguir()">Nuevo menú</button>
+    </section>
     <script>
         function seguir(){
             var idRestaurante = document.getElementById("idRest").value;
