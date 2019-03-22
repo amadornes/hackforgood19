@@ -11,14 +11,23 @@
 <body>
     <section class="seccion">
         <p>Introduce ID:</p>
-        <input type="text" id="idRest">
+        <input type="text" id="idRest" required>
         <button onclick="seguir()">Nuevo menú</button>
+        <p id="error">No puede estar vacio</p>
     </section>
     <script>
         function seguir(){
-            var idRestaurante = document.getElementById("idRest").value;
-            localStorage.setItem("idRest", idRestaurante);
-            window.location.replace("nuevoMenu.html");
+            
+            if(document.getElementById("idRest").value != "" && document.getElementById("idRest").value != " "){
+                var idRestaurante = document.getElementById("idRest").value;
+                localStorage.setItem("idRest", idRestaurante);
+                window.location.replace("nuevoMenu.html");
+                
+            }
+            else
+            {
+                document.getElementById("error").style.visibility = "visible";
+            }
         }
     </script>
     

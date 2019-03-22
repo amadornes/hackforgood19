@@ -1,4 +1,4 @@
-.prueba {
+.link {
 
 	text-decoration: none;
 	color: black;
@@ -25,10 +25,15 @@ body{
     font-family: Arial, Helvetica, Verdana, sans-serif;
 }
 
+#error{
+
+	visibility: hidden;
+	color: red;
+	font-size: 15;
+}
 .textop{
 
 	text-align: center;
-	
 	font-size: 25px;
 	padding: 10px;
   	border: 2px solid black;
