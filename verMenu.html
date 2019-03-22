@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <title>FoodForGood</title>
-</head>
-<header>
-    <a href="index.html" id="header"><h1>FoodForGood</h1></a>
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
     
@@ -23,8 +20,12 @@
         };
         firebase.initializeApp(config);
     </script>
-</header>
+</head>
 <body>
+<header>
+	
+    <a href="index.html" id="header"><h1>FoodForGood</h1></a>
+</header>
 	<section class="seccion">
 	    <h3>Ver restaurante</h3>
 
@@ -35,7 +36,7 @@
 		<p id="error">No puede estar vacio</p>
     </section>	
     
-    <section id="salida">
+    <section id="salida" class="seccion">
     </section>
 
     <script>
@@ -48,6 +49,7 @@
             var obj;
 
             if(idRest != "" && idRest != " "){
+            	document.getElementById("salida").innerHTML = "";
                 // Cosultar base de datos
 	            var docRef = firebase.firestore().collection("restaurante").doc(idRest).collection("menu");
                 docRef.get()
@@ -58,40 +60,35 @@
 
                         obj = JSON.parse(JSON.stringify( doc.data()));
 
-                        cadenaSalida = "<br><h4> Nombre: </h4> <p>" + obj.nombre + "</p>";
+                        cadenaSalida = "<br><p> <span style=\"font-weight: bold\">Nombre: </span> " + obj.nombre + "</p>";
 
-                        cadenaSalida += "<h4> Tipo: </h4> <p>" + obj.tipo + "</p>";
+                        cadenaSalida += "<p> <span style=\"font-weight: bold\">Tipo: </span>" + obj.tipo + "</p>";
 
-                        cadenaSalida += "<h4> Calorias: </h4> <p>" + obj.calorias + "</p>";
+                        cadenaSalida += "<p> <span style=\"font-weight: bold\">Calorias: </span>" + obj.calorias + "</p>";
 
-                        cadenaSalida += "<h4>Ingredientes:</h4>"
+                        cadenaSalida += "<h4>Ingredientes:</h4> <ul>"
 
 
                         for(var i = 0; i<obj.ingredientes.length;i++){
 
-                        	cadenaSalida += "<p>&nbsp&nbsp&nbsp&nbsp&nbsp" + obj.ingredientes[i] + "</p>";
+                        	cadenaSalida += "<li>" + obj.ingredientes[i] + "</li>";
 
 
                         }
 
-                        cadenaSalida += "<h4>Alergenos:</h4>"
+                        cadenaSalida += "</ul><h4>Alergenos:</h4> <ul>"
                         for(var i = 0; i<obj.alergenos.length;i++){
 
-                        	cadenaSalida += "<p>&nbsp&nbsp&nbsp&nbsp&nbsp" + obj.alergenos[i] + "</p>";
+                        	cadenaSalida += "<li>" + obj.alergenos[i] + "</li>";
 
 
                         }
 
-                        cadenaSalida += "<h4> descripcion: </h4> <p>" + obj.descripcion + "</p>";
+                        cadenaSalida += "</ul><p> <span style=\"font-weight: bold\">Descripcion: </span>" + obj.descripcion + "</p>";
 
 
-                        cadenaSalida += "<h4> Precio: </h4> <p>" + obj.precio + "</p>";
+                        cadenaSalida += "<p> <span style=\"font-weight: bold\">Precio: </span>" + obj.precio + "</p>";
 
-                        /*cadenaSalida = "<p>";
-                        cadenaSalida += JSON.stringify(doc.data());
-                        cadenaSalida += "</p>";
-                        console.log(" :::::::::::::::::::::::::::::::::::::. ");
-		                console.log("LOG: " + cadenaSalida);*/
 			            document.getElementById("salida").innerHTML += cadenaSalida;
                     });
                 })
@@ -107,7 +104,7 @@
 	                cadenaSalida = cadenaSalida + platoConsultado + "<br>";
 	            }
                 */
-
+                document.getElementById("error").style.visibility = "hidden";
 
              }
             else
