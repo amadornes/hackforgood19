@@ -45,11 +45,16 @@
         var idRest = localStorage.getItem("idRest");
         var alergenosAdd = [];
         var ingredientesAdd = [];
-        var nombreAdd = document.getElementById('nombreMenu').value;
-        var tipoAdd = document.getElementById('tipoPlato').value;
-        var caloriasAdd = document.getElementById('caloriasPlato').value;
+        var nombreAdd;
+        var tipoAdd;
+        var caloriasAdd;
 
         function nuevoMenu(){
+
+            caloriasAdd = document.getElementById('caloriasPlato').value;
+            tipoAdd = document.getElementById('tipoPlato').value;
+            nombreAdd = document.getElementById('nombreMenu').value;
+
             firebase.firestore().collection('restaurante').doc(idRest).collection('menu').add({
                 calorias: caloriasAdd,
                 nombre: nombreAdd,
