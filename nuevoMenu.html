@@ -43,15 +43,19 @@
 
     <script>
         var idRest = localStorage.getItem("idRest");
-        var alergenos = [];
-        var ingredientes = [];
-        var nombre = document.getElementById('nombreMenu').value;
-        var tipo = document.getElementById('tipoPlato').value;
-        var calorias = document.getElementById('caloriasPlato').value;
+        var alergenosAdd = [];
+        var ingredientesAdd = [];
+        var nombreAdd = document.getElementById('nombreMenu').value;
+        var tipoAdd = document.getElementById('tipoPlato').value;
+        var caloriasAdd = document.getElementById('caloriasPlato').value;
 
         function nuevoMenu(){
             firebase.firestore().collection('restaurante').doc(idRest).collection('menu').add({
-                test: "algo"
+                calorias: caloriasAdd,
+                nombre: nombreAdd,
+                tipo: tipoAdd,
+                alergenos: alergenosAdd,
+                ingredientes: ingredientesAdd
             }).then((entry) => {
                 console.log(entry);
             });
@@ -60,17 +64,17 @@
         function nuevoIngrediente(){
             var ingredienteAnnadir = document.getElementById('nuevoIngrediente').value;
             console.log(ingredienteAnnadir);
-            ingredientes.push(ingredienteAnnadir);
+            ingredientesAdd.push(ingredienteAnnadir);
             document.getElementById('nuevoIngrediente').value = '';
-            console.log(ingredientes);
+            console.log(ingredientesAdd);
         }
 
         function nuevoAlergeno(){
             var alergenoAnnadir = document.getElementById('nuevoAlergeno').value;
             console.log(alergenoAnnadir);
-            alergenos.push(alergenoAnnadir);
+            alergenosAdd.push(alergenoAnnadir);
             document.getElementById('nuevoAlergeno').value = '';
-            console.log(alergenos);
+            console.log(alergenosAdd);
         }
     </script>
     
