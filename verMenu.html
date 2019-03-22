@@ -15,7 +15,12 @@
 	    <input type="text" id="idMenu">
 
 	    <button onclick="verMenu()">Ver menú</button>
-	</section>	
+    </section>	
+    
+    <section id="salida">
+
+    </section>
+
     <script>
         function verMenu(){
             var alergenos = [];
@@ -27,7 +32,22 @@
             // Consultar base de datos
 
             // Escribir
+            var cadenaSalida;
+
+            cadenaSalida = "<h4>Nombre:</h4><p>" + nombre + "</p><br><h4>Tipo:</h4><p>" + tipo + "</p><br><h4>Calorías</h4><p>" + calorias + "</p><br><h4>Alérgenos</h4>";
+            // Sacar alérgenos
+            for (i=0;x<alergenos.length;i++){
+                var nuevaCadena = "<p>" + alergenos[i] + "</p><br>";
+                cadenaSalida = cadenaSalida += nuevaCadena;
+            }
+            // Sacar ingredientes
+            for (j=0; j<ingredientes; j++){
+                var nuevaCadena = "<p>" + ingredientes[j] + "</p><br>";
+                cadenaSalida = cadenaSalida += nuevaCadena;
+            }
             
+            document.getElementById("salida").innerHTML = cadenaSalida;
+
         }
     </script>
     
