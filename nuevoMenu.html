@@ -9,8 +9,15 @@
     <section>
         <p>Introduce nombre del plato:</p>
         <input type="text" id="nombreMenu">
+        <p>Introduce tipo de plato (entrante, postre...)</p>
+        <input type="text" id="tipoPlato">
+        <p>Introduce calorías:</p>
+        <input type="number" id="caloriasPlato">
+        <p>Introduce alérgenos:</p>
+        <input type="text" id="nuevoAlergeno"> <button onclick="nuevoAlergeno()">Añadir</button>
         <p>Introduce ingredientes</p>
         <input type="text" id="nuevoIngrediente"> <button onclick="nuevoIngrediente()">Añadir</button>
+        <br>
         <button onclick="nuevoMenu()">Añadir menú</button>
     </section>
 
@@ -26,13 +33,20 @@
         var database = firebase.database();
 
         var idRest = localStorage.getItem("idRest");
+        var alergenos = [];
+        var ingredientes = [];
 
         function nuevoMenu(){
             
         }
 
         function nuevoIngrediente(){
-            
+            ingredientes.push(document.getElementById("nuevoIngrediente").value);
+            document.getElementById('nuevoIngrediente').value = '';
+        }
+
+        function nuevoAlergeno(){
+            alergenos.push(document.getElementById("nuevoAlergeno").value);
         }
     </script>
     
