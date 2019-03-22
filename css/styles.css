@@ -1,12 +1,18 @@
 body{
     background-color: #EEEEEE;
     font-family: Arial, Helvetica, Verdana, sans-serif;
+    text-align: center;
+    
 }
 
 header{
+	text-align: center;
     background-color: #212121;
     position: relative;
+    color: #FFFFFF;
+    font-family: Times New Roman;
     top: -22px;
+    height: 75px;
 }
 
 footer{
