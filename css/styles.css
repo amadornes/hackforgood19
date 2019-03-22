@@ -32,8 +32,8 @@ body{
 	font-size: 25px;
 	padding: 10px;
   	border: 2px solid black;
-  	margin-right: 42vw;
-  	margin-left: 42vw;
+  	margin-right: 40%;
+  	margin-left: 40%;
   	border-radius: 5%;
   	background-color: #E0E0E0;
 }
