@@ -6,7 +6,23 @@
     <title>FoodForGood</title>
 </head>
 <header>
-	<a href="index.html" id="header"><h1>FoodForGood</h1></a>
+    <a href="index.html" id="header"><h1>FoodForGood</h1></a>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDv2KMF781Ks85L4YAKKaV6319XcsDwze4",
+            authDomain: "hackforgood19.firebaseapp.com",
+            databaseURL: "https://hackforgood19.firebaseio.com",
+            projectId: "hackforgood19",
+            storageBucket: "hackforgood19.appspot.com",
+            messagingSenderId: "830068370062"
+        };
+        firebase.initializeApp(config);
+    </script>
 </header>
 <body>
 	<section class="seccion">
@@ -28,13 +44,24 @@
             var idRest = document.getElementById('idR').value;
             var nombre;
             var platos = [];
-            var cadenaSalida;
-
-            // Cosultar base de datos
+            var cadenaSalida = "";
 
             if(idRest != "" && idRest != " "){
+                // Cosultar base de datos
 	            var docRef = firebase.firestore().collection("restaurante").doc(idRest).collection("menu");
-
+                docRef.get()
+                .then(function(querySnapshot) {
+                    querySnapshot.forEach(function(doc) {
+                        // doc.data() is never undefined for query doc snapshots
+                        console.log(doc.id, " => ", doc.data());
+                        var cadenaSalidaDos = "<p>" + doc.data().toString + "</p>";
+                        cadenaSalida = cadenaSalida += cadenaSalidaDos;
+                    });
+                })
+                .catch(function(error) {
+                    console.log("Error getting documents: ", error);
+                });
+                /*
 	            cadenaSalida = "<h4>Restaurante " + nombre + "</h4><br><h5>Platos:</h5><br>";
 
 	            // Imprimir platos
@@ -42,7 +69,9 @@
 	                var platoConsultado = platos[i];
 	                cadenaSalida = cadenaSalida + platoConsultado + "<br>";
 	            }
+                */
 
+                console.log("Error getting documents: " + cadenaSalida);
 	            document.getElementById("salida").innerHTML = cadenaSalida;
 
              }
