@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "830068370062",
+    "firebase_url": "https://hackforgood19.firebaseio.com",
+    "project_id": "hackforgood19",
+    "storage_bucket": "hackforgood19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830068370062:android:9b393fbabc558b5b",
+        "android_client_info": {
+          "package_name": "hfg.hackforgood19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830068370062-heepn15o8le9fg2u8b4tf9bc4s4e6ps7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa-_BGri3vkDIsAHGWTVvvucDpHX8nuwo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
